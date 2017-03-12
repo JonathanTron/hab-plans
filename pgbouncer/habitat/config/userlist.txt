@@ -1,0 +1,3 @@
+{{~#each cfg.pgbouncer.users as |user|}}
+{{user}}
+{{~/each}}
