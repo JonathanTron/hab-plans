@@ -1,0 +1,44 @@
+#!/bin/sh
+
+exec 2>&1
+exec perl \
+  -T \
+  -I {{pkg.path}}/lib/perl5 \
+  {{pkg.path}}/sbin/postgrey \
+  --user={{pkg.svc_user}} \
+  --group={{pkg.svc_group}} \
+  --inet={{cfg.cli.inet_host}}:{{cfg.cli.inet_port}} \
+{{~#if cfg.cli.unix}}
+  --unix={{cfg.cli.unix}} \
+{{~/if}}
+  --delay={{cfg.cli.delay}} \
+  --max-age={{cfg.cli.max-age}} \
+  --retry-window={{cfg.cli.retry-window}} \
+  --greylist-action={{cfg.cli.greylist-action}} \
+{{~#if cfg.cli.lookup-by-subnet}}
+  --lookup-by-subnet \
+{{~/if}}
+  --ipv4cidr={{cfg.cli.ipv4cidr}} \
+  --ipv6cidr={{cfg.cli.ipv6cidr}} \
+{{~#if cfg.cli.lookup-by-host}}
+  --lookup-by-host \
+{{~/if}}
+{{~#if cfg.cli.privacy}}
+  --privacy \
+{{~/if}}
+{{~#if cfg.cli.hostname}}
+  --hostname={{cfg.cli.hostname}} \
+{{~/if}}
+{{~#if cfg.cli.exim}}
+  --exim \
+{{~/if}}
+  --auto-whitelist-clients={{cfg.cli.auto-whitelist-clients}} \
+{{~#if cfg.cli.listen-queue-size}}
+  --listen-queue-size={{cfg.cli.listen-queue-size}} \
+{{~/if}}
+{{~#if cfg.cli.x-greylist-header}}
+  --x-greylist-header="{{cfg.cli.x-greylist-header}}" \
+{{~/if}}
+  --dbdir={{pkg.svc_data_path}} \
+  --whitelist-clients={{pkg.svc_config_path}}/postgrey_whitelist_clients \
+  --whitelist-recipients={{pkg.svc_config_path}}/postgrey_whitelist_recipients

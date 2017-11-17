@@ -1,0 +1,26 @@
+# Use this file to templatize your application's native configuration files.
+# See the docs at https://www.habitat.sh/docs/create-packages-configure/.
+# You can safely delete this file if you don't need it.
+
+[cli]
+inet_host = "localhost"
+inet_port = 10023
+unix = false
+delay = 300
+max-age = 35
+retry-window = 2
+greylist-action = "DEFER_IF_PERMIT"
+lookup-by-subnet = true
+ipv4cidr = 24
+ipv6cidr = 64
+lookup-by-host = false
+privacy = false
+hostname = false
+exim = false
+auto-whitelist-clients = 5
+
+[whitelist-clients]
+list = []
+
+[whitelist-recipients]
+list = []
