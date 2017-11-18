@@ -22,7 +22,7 @@ do_prepare() {
   eval "$(perl -I$(pkg_path_for core/local-lib)/lib/perl5 -Mlocal::lib=$(pkg_path_for core/local-lib))"
   eval "$(perl -Mlocal::lib=${pkg_prefix})"
 
-  cpanm Net::Server Net::DNS IO::Multiplex BerkeleyDB Digest::SHA NetAddr::IP
+  cpanm Net::Server Net::DNS IO::Multiplex BerkeleyDB Digest::SHA NetAddr::IP Parse::Syslog
 }
 
 do_build() {
@@ -31,10 +31,22 @@ do_build() {
 
 do_install(){
   mkdir -p "$pkg_prefix/sbin"
+
+  perl_bin_path="$(pkg_path_for core/perl)/bin/perl"
+  graylog_libs_path="${pkg_prefix}/lib/perl5"
+
   cp "$HAB_CACHE_SRC_PATH/$pkg_dirname/postgrey" "$pkg_prefix/sbin"
+  sed \
+    -e "s|#!/usr/bin/perl -T -w|#!${perl_bin_path} -I${graylog_libs_path} -T -w|" \
+    -i "${pkg_prefix}/sbin/postgrey"
+
   cp "$HAB_CACHE_SRC_PATH/$pkg_dirname/policy-test" "$pkg_prefix/sbin"
+  sed \
+    -e "s|#!/usr/bin/perl -w|#!${perl_bin_path} -I${graylog_libs_path} -w|" \
+    -i "${pkg_prefix}/sbin/policy-test"
+
   cp "$HAB_CACHE_SRC_PATH/$pkg_dirname/contrib/postgreyreport" "$pkg_prefix/sbin"
-  fix_interpreter "$pkg_prefix/sbin/postgrey" core/perl bin/perl
-  fix_interpreter "$pkg_prefix/sbin/policy-test" core/perl bin/perl
-  fix_interpreter "$pkg_prefix/sbin/postgreyreport" core/perl bin/perl
+  sed \
+    -e "s|#!/usr/bin/perl|#!${perl_bin_path} -I${graylog_libs_path}|" \
+    -i "${pkg_prefix}/sbin/postgreyreport"
 }
