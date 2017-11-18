@@ -22,7 +22,14 @@ do_prepare() {
   eval "$(perl -I$(pkg_path_for core/local-lib)/lib/perl5 -Mlocal::lib=$(pkg_path_for core/local-lib))"
   eval "$(perl -Mlocal::lib=${pkg_prefix})"
 
-  cpanm Net::Server Net::DNS IO::Multiplex BerkeleyDB Digest::SHA NetAddr::IP Parse::Syslog
+  cpanm \
+    Net::Server \
+    Net::DNS \
+    IO::Multiplex \
+    BerkeleyDB \
+    Digest::SHA \
+    NetAddr::IP \
+    Parse::Syslog
 }
 
 do_build() {
