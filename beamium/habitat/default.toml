@@ -1,0 +1,25 @@
+[parameters]
+source-dir="sources"
+sink-dir="sinks"
+scan-period=1000
+batch-count=250
+batch-size=250
+log-file="beamium.log"
+log-level=4
+timeout=500
+
+# [[scrapers]]
+# name="postgres_exporter"
+# url="http://localhost:9187/metrics"
+# period=10000
+# format="prometheus"
+# metrics=["pg_*"]
+
+# [[sinks]]
+# name="warp10"
+# url=""
+# token=""
+
+# [[labels]]
+# name="host"
+# value="postgres"

@@ -1,0 +1,39 @@
+{{~#if cfg.scrapers}}
+scrapers:
+{{~#each cfg.scrapers as |scraper|}}
+  {{scraper.name}}:
+    url: {{scraper.url}}
+    period: {{scraper.period}}
+    format: {{scraper.format}}
+    metrics:
+    {{~#each scraper.metrics as |metric|}}
+      - {{metric}}
+    {{~/each}}
+{{~/each}}
+{{~/if}}
+
+{{~#if cfg.sinks}}
+sinks:
+{{~#each cfg.sinks as |sink|}}
+  {{sink.name}}:
+    url: {{sink.url}}
+    token: {{sink.token}}
+{{~/each}}
+{{~/if}}
+
+{{~#if cfg.labels}}
+labels:
+{{~#each cfg.labels as |label|}}
+  {{label.name}}: {{label.value}}
+{{~/each}}
+{{~/if}}
+
+parameters:
+  source-dir: {{pkg.svc_data_path}}/{{cfg.parameters.source-dir}}
+  sink-dir: {{pkg.svc_data_path}}/{{cfg.parameters.sink-dir}}
+  scan-period: {{cfg.parameters.scan-period}}
+  batch-count: {{cfg.parameters.batch-count}}
+  batch-size: {{cfg.parameters.batch-size}}
+  log-file: {{pkg.svc_var_path}}/{{cfg.parameters.log-file}}
+  log-level: {{cfg.parameters.log-level}}
+  timeout: {{cfg.parameters.timeout}}

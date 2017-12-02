@@ -1,0 +1,4 @@
+#!/bin/sh
+
+mkdir -p {{pkg.svc_data_path}}/{{cfg.parameters.sources-dir}}
+mkdir -p {{pkg.svc_data_path}}/{{cfg.parameters.sinks-dir}}
