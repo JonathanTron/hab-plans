@@ -1,0 +1,3 @@
+#!/bin/sh
+
+source "{{pkg.svc_path}}/hooks/reconfigure"
