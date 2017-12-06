@@ -8,6 +8,7 @@ pkg_shasum="d7174af61a038817c329af314461f9a4022adcc1513dcc7895ee9dd8be89fe14"
 pkg_deps=(core/cacerts)
 pkg_build_deps=()
 pkg_bin_dirs=(bin)
+pkg_svc_user="root"
 pkg_exports=(
   [port]=port
   [prometheus_port]=prometheus_port
