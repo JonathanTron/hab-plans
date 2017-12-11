@@ -9,6 +9,7 @@ pkg_shasum="7ffb3773abb71dd2b2119c5f6a7a0dbca0cff34b24b2ced9e01d9897df61a127"
 pkg_deps=()
 pkg_build_deps=()
 pkg_bin_dirs=(bin)
+pkg_svc_user="root"
 pkg_exports=(
   [port]=port
 )
