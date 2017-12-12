@@ -1,0 +1,61 @@
+[[global]]
+name = "maxconn"
+value = 32
+
+[[defaults]]
+name = "mode"
+value = "http"
+[[defaults]]
+name = "timeout"
+value = "connect 5000"
+[[defaults]]
+name = "timeout"
+value = "client 10000"
+[[defaults]]
+name = "timeout"
+value = "server 10000"
+
+[[frontend]]
+name = "http-in"
+  [[frontend.config]]
+    name = "bind"
+    value = "*:80"
+  [[frontend.config]]
+  name = "default_backend"
+  value = "default"
+
+[[backend]]
+name = "default"
+  [[backend.config]]
+  name = "option"
+  value = "httpchk GET /"
+
+# [[listen]]
+# name = "stats"
+#   [[listen.config]]
+#     name = "mode"
+#     value = "http"
+#   [[listen.config]]
+#     name = "bind"
+#     value = "*:80"
+#   [[listen.config]]
+#     name = "maxconn"
+#     value = 10
+#   [[listen.config]]
+#     name = "stats"
+#     value = "enable"
+#   [[listen.config]]
+#     name = "stats"
+#     value = "hide-version"
+#   [[listen.config]]
+#     name = "stats"
+#     value = "refresh 30"
+#   [[listen.config]]
+#     name = "stats"
+#     value = "show-node"
+#   [[listen.config]]
+#     name = "stats"
+#     value = "auth admin:password"
+#   [[listen.config]]
+#     name = "stats"
+#     value = "uri /"
