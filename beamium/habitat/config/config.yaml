@@ -1,7 +1,7 @@
 {{~#if cfg.scrapers}}
 scrapers:
-{{~#each cfg.scrapers as |scraper|}}
-  {{scraper.name}}:
+{{~#each cfg.scrapers as |name scraper|}}
+  {{name}}:
     url: {{scraper.url}}
     period: {{scraper.period}}
     format: {{scraper.format}}
@@ -9,22 +9,41 @@ scrapers:
     {{~#each scraper.metrics as |metric|}}
       - {{metric}}
     {{~/each}}
+    headers:
+    {{~#each scraper.headers as |key value|}}
+      {{key}}: {{value}}
+    {{~/each}}
 {{~/each}}
 {{~/if}}
 
 {{~#if cfg.sinks}}
 sinks:
-{{~#each cfg.sinks as |sink|}}
-  {{sink.name}}:
+{{~#each cfg.sinks as |name sink|}}
+  {{name}}:
     url: {{sink.url}}
     token: {{sink.token}}
+    {{~#if sink.token-header}}
+    token-header: {{sink.token-header}}
+    {{~/if}}
+    {{~#if sink.selector}}
+    selector: {{sink.selector}}
+    {{~/if}}
+    {{~#if sink.ttl}}
+    ttl: {{sink.ttl}}
+    {{~/if}}
+    {{~#if sink.size}}
+    size: {{sink.size}}
+    {{~/if}}
+    {{~#if sink.parallel}}
+    parallel: {{sink.parallel}}
+    {{~/if}}
 {{~/each}}
 {{~/if}}
 
 {{~#if cfg.labels}}
 labels:
-{{~#each cfg.labels as |label|}}
-  {{label.name}}: {{label.value}}
+{{~#each cfg.labels as |name value|}}
+  {{name}}: {{value}}
 {{~/each}}
 {{~/if}}
 

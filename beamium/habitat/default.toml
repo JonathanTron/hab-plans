@@ -8,18 +8,23 @@ log-file="beamium.log"
 log-level=4
 timeout=500
 
-# [[scrapers]]
-# name="postgres_exporter"
+# [scrapers.postgres_exporter]
 # url="http://localhost:9187/metrics"
 # period=10000
 # format="prometheus"
 # metrics=["pg_*"]
+# [scrapers.postgres_exporter.headers]
+# Toto="tata"
+# Authorization="Basic XXXXXXX"
 
-# [[sinks]]
-# name="warp10"
+# [sinks.warp10]
 # url=""
 # token=""
+# token-header="X-Custom-Token"
+# selector="metrics.*"
+# ttl=3600
+# size=1073741824
+# parallel=1
 
-# [[labels]]
-# name="host"
-# value="postgres"
+# [labels]
+# host="postgres"
