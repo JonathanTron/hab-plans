@@ -1,0 +1,34 @@
+#!/bin/sh
+
+exec 2>&1
+
+{{~#if cfg.data-source.name}}
+export DATA_SOURCE_NAME="{{cfg.data-source.name}}"
+{{~/if}}
+{{~#if cfg.data-source.uri}}
+export DATA_SOURCE_URI="{{cfg.data-source.uri}}"
+{{~/if}}
+{{~#if cfg.data-source.user}}
+export DATA_SOURCE_USER="{{cfg.data-source.user}}"
+{{~/if}}
+{{~#if cfg.data-source.user}}
+export DATA_SOURCE_USER="{{cfg.data-source.user}}"
+{{~/if}}
+{{~#if cfg.data-source.pass}}
+export DATA_SOURCE_PASS="{{cfg.data-source.pass}}"
+{{~/if}}
+{{~#if cfg.data-source.pass}}
+export DATA_SOURCE_PASS="{{cfg.data-source.pass}}"
+{{~/if}}
+
+exec postgres_exporter \
+  {{~#each cfg.options as |option|}}
+  {{option}} \
+  {{~/each}}
+  {{~#if cfg.query-path}}
+  --extend.query-path={{cfg.query-path}} \
+  {{~else}}
+  --extend.query-path={{pkg.svc_config_path}}/queries.yaml \
+  {{~/if}}
+  --web.listen-address=":{{cfg.port}}"
+
