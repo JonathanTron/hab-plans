@@ -5,5 +5,5 @@ exec node_exporter \
   {{~#each cfg.options as |option|}}
   {{option}} \
   {{~/each}}
-  --web.listen-address=":{{cfg.port}}"
+  --web.listen-address="{{cfg.address}}:{{cfg.port}}"
 

@@ -30,5 +30,5 @@ exec postgres_exporter \
   {{~else}}
   --extend.query-path={{pkg.svc_config_path}}/queries.yaml \
   {{~/if}}
-  --web.listen-address=":{{cfg.port}}"
+  --web.listen-address="{{cfg.address}}:{{cfg.port}}"
 
