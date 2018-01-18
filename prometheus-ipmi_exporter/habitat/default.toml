@@ -1,0 +1,8 @@
+address=""
+port=9289
+options=[
+  "-ipmi.path 'ipmitool'", # Path to the ipmi binary
+  "-log.format 'logger:stderr'", # Set the log target and format. Example: "logger:syslog?appname=bob&local=7" or "logger:stdout?json=true"
+  "-log.level 'info'", # Only log messages with the given severity or above. Valid levels: [debug, info, warn, error, fatal]
+  "-web.path '/metrics'" # Path under which to expose metrics.
+]

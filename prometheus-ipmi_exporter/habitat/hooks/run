@@ -1,0 +1,8 @@
+#!/bin/sh
+
+exec 2>&1
+exec ipmi_exporter \
+  {{~#each cfg.options as |option|}}
+  {{option}} \
+  {{~/each}}
+  --web.listen="{{cfg.address}}:{{cfg.port}}"
