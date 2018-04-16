@@ -1,15 +1,15 @@
 pkg_name=pgbouncer
 pkg_origin=jonathantron
-pkg_version="1.7.2"
+pkg_version="1.8.1"
 pkg_maintainer="Jonathan Tron <jonathan@tron.name>"
 pkg_license=('ISC')
 pkg_source="https://pgbouncer.github.io/downloads/files/${pkg_version}/${pkg_name}-${pkg_version}.tar.gz"
-pkg_shasum="de36b318fe4a2f20a5f60d1c5ea62c1ca331f6813d2c484866ecb59265a160ba"
+pkg_shasum="fa8bde2a2d2c8c80d53a859f8e48bc6713cf127e31c77d8f787bbc1d673e8dc8"
 pkg_deps=(
   core/glibc
   core/libevent
   core/openssl
-  jonathantron/c-ares
+  core/c-ares
 )
 pkg_build_deps=(
   core/autoconf
