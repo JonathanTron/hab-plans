@@ -5,9 +5,6 @@ exec coredns \
   {{~#if cfg.cpu }}
   -cpu="{{cfg.cpu}}" \
   {{~/if}}
-  {{~#if cfg.log }}
-  -log \
-  {{~/if}}
   -dns.port="{{cfg.port}}" \
   -conf="{{pkg.svc_config_path}}/Corefile"
 

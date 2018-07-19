@@ -1,10 +1,10 @@
 pkg_name=coredns
 pkg_origin=jonathantron
-pkg_version="1.0.0"
+pkg_version="1.2.0"
 pkg_maintainer="Jonathan Tron <jonathan@tron.name>"
 pkg_license=('Apache-2.0')
 pkg_source="https://github.com/coredns/coredns/releases/download/v${pkg_version}/coredns_${pkg_version}_linux_amd64.tgz"
-pkg_shasum="d7174af61a038817c329af314461f9a4022adcc1513dcc7895ee9dd8be89fe14"
+pkg_shasum="ba5bc542f2652774ee9f8b5ac6486a469db351031c50fa5a0aa5d33390f7a60a"
 pkg_deps=(core/cacerts)
 pkg_build_deps=()
 pkg_bin_dirs=(bin)
