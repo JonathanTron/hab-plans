@@ -1,10 +1,10 @@
 pkg_name=beamium
 pkg_origin=jonathantron
-pkg_version="1.7.0"
+pkg_version="1.9.3"
 pkg_maintainer="Jonathan Tron <jonathan@tron.name>"
 pkg_license=('BSD-3-Clause')
 pkg_source="https://github.com/ovh/beamium/archive/v${pkg_version}.tar.gz"
-pkg_shasum="87201c3605c253b11f7cc4406673b57218bff7ab3d44e1767c3599fb80ae3590"
+pkg_shasum="18ff56b7ad7bc953bdcaa69fd69b7db071e32df2cefd36a088d15f2e02322f3f"
 pkg_deps=(core/gcc-libs core/glibc core/openssl core/cacerts)
 pkg_build_deps=(core/rust core/gcc core/gcc-libs core/glibc core/openssl core/cacerts core/git)
 pkg_bin_dirs=(bin)

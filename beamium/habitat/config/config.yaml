@@ -5,14 +5,24 @@ scrapers:
     url: {{scraper.url}}
     period: {{scraper.period}}
     format: {{scraper.format}}
+    {{~#if scraper.labels}}
+    labels:
+    {{~#each scraper.labels as |key value|}}
+      {{key}}: {{value}}
+    {{~/each}}
+    {{~/if}}
+    {{~#if scraper.metrics}}
     metrics:
     {{~#each scraper.metrics as |metric|}}
       - {{metric}}
     {{~/each}}
+    {{~/if}}
+    {{~#if scraper.headers}}
     headers:
     {{~#each scraper.headers as |key value|}}
       {{key}}: {{value}}
     {{~/each}}
+    {{~/if}}
 {{~/each}}
 {{~/if}}
 
@@ -37,6 +47,9 @@ sinks:
     {{~#if sink.parallel}}
     parallel: {{sink.parallel}}
     {{~/if}}
+    {{~#if sink.keep-alive}}
+    keep-alive: {{sink.keep-alive}}
+    {{~/if}}
 {{~/each}}
 {{~/if}}
 
@@ -56,3 +69,11 @@ parameters:
   log-file: {{pkg.svc_var_path}}/{{cfg.parameters.log-file}}
   log-level: {{cfg.parameters.log-level}}
   timeout: {{cfg.parameters.timeout}}
+  router-parallel: {{cfg.parameters.router-parallel}}
+  {{~#if cfg.parameters.backoff}}
+  backoff:
+    initial: {{cfg.parameters.backoff.initial}}
+    max: {{cfg.parameters.backoff.max}}
+    multiplier: {{cfg.parameters.backoff.multiplier}}
+    randomization: {{cfg.parameters.backoff.randomization}}
+  {{~/if}}

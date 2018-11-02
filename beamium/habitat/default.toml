@@ -7,12 +7,22 @@ batch-size=250
 log-file="beamium.log"
 log-level=4
 timeout=500
+router-parallel=1
+
+[parameters.backoff]
+initial="500ms"
+max="1m"
+multiplier="1.5"
+randomization="0.3"
 
 # [scrapers.postgres_exporter]
 # url="http://localhost:9187/metrics"
 # period=10000
 # format="prometheus"
 # metrics=["pg_*"]
+# [scrapers.postgres_exporter.labels]
+# service="postgresql"
+# environment="prod"
 # [scrapers.postgres_exporter.headers]
 # Toto="tata"
 # Authorization="Basic XXXXXXX"
@@ -25,6 +35,7 @@ timeout=500
 # ttl=3600
 # size=1073741824
 # parallel=1
+# keep-alive=1
 
 # [labels]
 # host="postgres"
