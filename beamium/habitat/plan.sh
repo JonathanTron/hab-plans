@@ -15,6 +15,10 @@ do_prepare() {
   export CARGO_TARGET_DIR="$HAB_CACHE_SRC_PATH/$pkg_dirname"
   build_line "Setting CARGO_TARGET_DIR=$CARGO_TARGET_DIR"
 
+  # Ensure ssl certs are found by rust lib
+  export SSL_CERT_FILE="{{pkg_path_for cacerts}}/ssl/cert.pem"
+  build_line "Setting SSL_CERT_FILE=$SSL_CERT_FILE"
+
   # Used to compile cargo deps based on openssl
   export OPENSSL_DIR=$(pkg_path_for openssl)
   build_line "Setting OPENSSL_DIR=$OPENSSL_DIR"
