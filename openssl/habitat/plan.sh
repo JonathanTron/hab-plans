@@ -2,7 +2,7 @@ pkg_name=openssl
 _distname="$pkg_name"
 pkg_origin=core
 pkg_version=1.1.1d
-pkg_maintainer="The Habitat Maintainers <humans@habitat.sh>"
+pkg_maintainer="Jonathan Tron <jonathan@tron.name>"
 pkg_description="\
 OpenSSL is an open source project that provides a robust, commercial-grade, \
 and full-featured toolkit for the Transport Layer Security (TLS) and Secure \
