@@ -11,6 +11,7 @@ sudo -E apt-get install -y --no-install-recommends \
   postfix
 SCRIPT
 install_hab_cli = <<-'SCRIPT'
+adduser hab
 curl https://raw.githubusercontent.com/habitat-sh/habitat/master/components/hab/install.sh | sudo bash
 SCRIPT
 
