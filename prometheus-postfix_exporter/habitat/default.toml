@@ -1,0 +1,20 @@
+address=""
+port=9154
+options=[
+  # Path under which to expose metrics.
+  "--web.telemetry-path '/metrics'",
+  # Path at which Postfix places its showq socket
+  "--postfix.showq_path '/var/spool/postfix/public/showq'",
+  # Path where Postfix writes log entries.
+  "--postfix.logfile_path '/var/log/maillog'",
+  # Log all unsupported lines.
+  # "--log.unsupported"
+  # To enable reading from systemd journal, whis overrides the log file setting.
+  # "--systemd.enable"
+  # Specify systemd unit
+  # "--systemd.unit 'postfix'
+  # Specify systemd slice
+  # "--systemd.slice 'public'
+  # To read the journal directly from a directory
+  # "--systemd.journal_path '/path/to/journal/directory'"
+]

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+exec 2>&1
+exec postfix_exporter \
+  {{~#each cfg.options as |option|}}
+  {{option}} \
+  {{~/each}}
+  --web.listen-address="{{cfg.address}}:{{cfg.port}}"
