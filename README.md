@@ -122,6 +122,16 @@ EOT
 cat postfix.toml | hab config apply prometheus-postfix_exporter.default $(date +%s)
 ```
 
+Once done, you can either stop or completely destroy the VM:
+
+```bash
+# shutdown only
+vagrant down
+
+# remove it completely
+vagrant destroy
+```
+
 # Sending package to [Habitat builder](https://habitat.sh)
 
 Export your `Personal access token` for habitat builder and the `origin`:
