@@ -12,6 +12,7 @@ pkg_svc_run='haproxy -f config/haproxy.conf -db'
 pkg_deps=(
   core/zlib
   core/pcre
+  core/gcc-libs
   jonathantron/openssl
 )
 pkg_build_deps=(
