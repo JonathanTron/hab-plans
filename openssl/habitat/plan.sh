@@ -1,7 +1,7 @@
 pkg_name=openssl
 _distname="$pkg_name"
 pkg_origin=core
-pkg_version=1.1.1j
+pkg_version=1.1.1k
 pkg_maintainer="Jonathan Tron <jonathan@tron.name>"
 pkg_description="\
 OpenSSL is an open source project that provides a robust, commercial-grade, \
@@ -12,7 +12,7 @@ library.\
 pkg_upstream_url="https://www.openssl.org"
 pkg_license=('OpenSSL')
 pkg_source="https://www.openssl.org/source/${_distname}-${pkg_version}.tar.gz"
-pkg_shasum="aaf2fcb575cdf6491b98ab4829abf78a3dec8402b8b81efc8f23c00d443981bf"
+pkg_shasum="892a0875b9872acd04a9fde79b1f943075d5ea162415de3047c327df33fbaee5"
 pkg_dirname="${_distname}-${pkg_version}"
 pkg_deps=(
   core/glibc
