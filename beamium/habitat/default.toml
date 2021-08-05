@@ -1,13 +1,15 @@
 [parameters]
 source-dir="sources"
 sink-dir="sinks"
-scan-period=1000
+scan-period="1s"
 batch-count=250
-batch-size=250
+batch-size="2Kb"
 log-file="beamium.log"
 log-level=4
 timeout=500
 router-parallel=1
+# metrics="127.0.0.1:9110"
+filesystem-threads=100
 
 [parameters.backoff]
 initial="500ms"
@@ -17,7 +19,8 @@ randomization="0.3"
 
 # [scrapers.postgres_exporter]
 # url="http://localhost:9187/metrics"
-# period=10000
+# period="30s"
+# pool=1
 # format="prometheus"
 # metrics=["pg_*"]
 # [scrapers.postgres_exporter.labels]
@@ -33,7 +36,7 @@ randomization="0.3"
 # token-header="X-Custom-Token"
 # selector="metrics.*"
 # ttl=3600
-# size=1073741824
+# size="1Gb"
 # parallel=1
 # keep-alive=1
 

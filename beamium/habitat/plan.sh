@@ -1,6 +1,6 @@
 pkg_name=beamium
 pkg_origin=jonathantron
-pkg_version="2.0.7"
+pkg_version="2.0.8"
 pkg_maintainer="Jonathan Tron <jonathan@tron.name>"
 pkg_license=('BSD-3-Clause')
 pkg_source="https://github.com/ovh/beamium.git"

@@ -23,6 +23,9 @@ scrapers:
       {{key}}: {{value}}
     {{~/each}}
     {{~/if}}
+    {{~#if scraper.pool}}
+    pool: {{scraper.pool}}
+    {{~/if}}
 {{~/each}}
 {{~/if}}
 
@@ -70,6 +73,10 @@ parameters:
   log-level: {{cfg.parameters.log-level}}
   timeout: {{cfg.parameters.timeout}}
   router-parallel: {{cfg.parameters.router-parallel}}
+  {{~#if cfg.parameters.metrics}}
+  metrics: {{cfg.parameters.metrics}}
+  {{~/if}}
+  filesystem-threads: {{cfg.parameters.filesystem-threads}}
   {{~#if cfg.parameters.backoff}}
   backoff:
     initial: {{cfg.parameters.backoff.initial}}
