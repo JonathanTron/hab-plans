@@ -1,6 +1,5 @@
 port=53
 prometheus_port=9153
-cpu="100%"
 log=true
 
 # [[zones]]
