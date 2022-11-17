@@ -4,3 +4,4 @@ results/
 example_config
 .vagrant/
 .env
+.envrc
