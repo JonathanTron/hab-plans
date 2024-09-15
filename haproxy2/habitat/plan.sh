@@ -1,13 +1,13 @@
 pkg_origin=jonathantron
 pkg_name=haproxy2
 pkg_description="The Reliable, High Performance TCP/HTTP Load Balancer"
-pkg_version=2.8.5
+pkg_version=2.8.10
 pkg_maintainer='Jonathan Tron <jonathan@tron.name>'
 pkg_license=('GPL-2.0' 'LGPL-2.1')
 pkg_source=http://www.haproxy.org/download/2.8/src/haproxy-${pkg_version}.tar.gz
 pkg_upstream_url="http://git.haproxy.org/git/haproxy-2.8.git/"
 pkg_dirname="haproxy-${pkg_version}"
-pkg_shasum=3f5459c5a58e0b343a32eaef7ed5bed9d3fc29d8aa9e14b36c92c969fc2a60d9
+pkg_shasum=0d63cd46d9d10ac7dbc02f3c6769c1908f221e0a5c5b655a194655f7528d612a
 pkg_svc_run='haproxy -f config/haproxy.conf -db'
 pkg_deps=(
   core/zlib
